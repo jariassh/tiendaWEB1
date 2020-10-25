@@ -1,11 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Amita:wght@700&family=Galada&display=swap');
+
 * {
     margin: 0;
     padding: 0;
 }
-.altoDisplay {
-    height: calc(100vh - 79px);
+.container-fluid {
+    background-image: url('https://i.postimg.cc/nzMKHZdf/background-Tienda-Web.jpg'); 
+    background-color: #f2f2f2; 
+    background-repeat: no-repeat; 
+    background-size:cover;
 }
-footer {
-    background-color: #f8f9fa;
+.altoDisplay {
+    min-height: calc(100vh - 95px);
+}
+
+#contenidoInicio {
+    margin-top: 300px;
+    padding-left: 60px;
+    /* border: 1px solid blue; */
+}
+#logo {
+    margin-bottom: 40px;
+}
+
+#logo h1{    
+    font-family: 'Galada', cursive;
+    font-size: 65px;
+    margin-bottom: 0;
+}
+
+#logo p{    
+    font-family: 'Amita', cursive;
+    font-size: 35px;
+    margin-top: 0;
+    -webkit-text-stroke: .5px #fff;
+}
+
+#imgInicio {
+    margin-top: 160px;
+    padding-right: 80px;
+    /* border: 1px solid green; */
+}
+
+#footer {
+    background-color: #f2f2f2;
     font-weight: bold;
+}
+
+.pie {
+    float: left;
+}
+
+#git {
+    padding-top: 15px;
+    font-size: 30px;
+    align-items: center;
+    text-align: center;
+}
+
+#git a i {
+    color: black;
 }

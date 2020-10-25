@@ -8,6 +8,9 @@
     <!-- Bootstrap Css -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
+    <!-- Font Awesome JS File -->
+    <script src="https://kit.fontawesome.com/29f215aa7a.js" crossorigin="anonymous"></script>
+
     <!-- Project's CSS Files -->
     <link rel="stylesheet" href="vistas/css/estilos.css">
     <link rel="stylesheet" href="vistas/css/settingsMobile.css">
@@ -36,12 +39,19 @@
                 }
             ?>
         </div>
-        <div class="row">
-            <div class="w-100">
-                <footer class="pl-3 py-3">
+        <div class="row mt-3">
+            <div class="w-100" id="footer">
+                <footer class="col-11 pl-3 py-3 pie">
                     <p class="mb-0">Copyright &copy 2020-2</p>
                     <small>By: Yhonier Molina and Jonathan Arias</small>
                 </footer>
+                <div class="col-1 pie" id="git">
+                    <a href="https://github.com/jariassh/tiendaWEB1" target="blank">
+                        <span>
+                            <i class="fab fa-github"></i>
+                        </span>
+                    </a>
+                </div>
             </div>
          </div>
     </div>    
