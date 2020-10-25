@@ -1,0 +1,24 @@
+# Impedir que se pueda ver el listado de contenidos de un directorio
+    Options All -Indexes
+
+# Asegurando el archivo .htaccess
+    <Files .htaccess>
+    Order allow,deny
+    Deny from all
+    </Files>
+
+# Urls Amigables
+    RewriteEngine On
+    RewriteRule ^([-a-zA-Z0-9/]+)$ index.php?pagina=$1
+
+# denegar acceso a robots maliciosos, extractores de webs y navegadores offline
+    #RewriteBase /
+    RewriteCond %{HTTP_USER_AGENT} ^Anarchie [OR]
+    RewriteCond %{HTTP_USER_AGENT} ^ASPSeek [OR]
+    RewriteCond %{HTTP_USER_AGENT} ^attach [OR]
+    RewriteCond %{HTTP_USER_AGENT} ^autoemailspider [OR]
+    RewriteCond %{HTTP_USER_AGENT} ^Xaldon\ WebSpider [OR]
+    RewriteCond %{HTTP_USER_AGENT} ^Xenu [OR]
+    RewriteCond %{HTTP_USER_AGENT} ^Zeus.*Webster [OR]
+    RewriteCond %{HTTP_USER_AGENT} ^Zeus
+    RewriteRule ^.* - [F,L]

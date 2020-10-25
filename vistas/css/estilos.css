@@ -1,0 +1,11 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.altoDisplay {
+    height: calc(100vh - 79px);
+}
+footer {
+    background-color: #f8f9fa;
+    font-weight: bold;
+}
