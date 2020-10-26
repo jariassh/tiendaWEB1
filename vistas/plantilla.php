@@ -39,8 +39,8 @@
                 }
             ?>
         </div>
-        <div class="row mt-3">
-            <div class="w-100" id="footer">
+        <div class="row mt-4">
+            <div class="w-100 colorFondo" id="footer">
                 <footer class="col-11 pl-3 py-3 pie">
                     <p class="mb-0">Copyright &copy 2020-2</p>
                     <small>By: Yhonier Molina and Jonathan Arias</small>
@@ -49,8 +49,9 @@
                     <a href="https://github.com/jariassh/tiendaWEB1" target="blank">
                         <span>
                             <i class="fab fa-github"></i>
-                        </span>
+                        </span>                        
                     </a>
+                    <p>Repository</p>
                 </div>
             </div>
          </div>

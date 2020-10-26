@@ -3,7 +3,7 @@
     <div class="col-6" id="contenidoInicio">
         <div class="row" id="logo">
             <div class="col-12">
-                <h1>MaxiKomputo</h1>                    
+                <h1 id="nombreLogo">MaxiKomputo</h1>                    
             </div>
             <div class="col-12">
                 <p>Excelencia, Profesionalismo y Precios Bajos</p>
