@@ -1,4 +1,4 @@
-<div class="row" style="boder-bottom: 5px solid red">
+<div class="row">
   <div class="col">
     <header>
       <div class="row colorFondo mb-3" id="cabecera">
@@ -49,7 +49,7 @@
                 </span>
               </div>
             </div>
-            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="https://url-Image..." name="txtImgRegistro">
+            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="https://url-Image..." name="txtImgRegistro" autocomplete="off">
           </div>
         </div>
       </div>
@@ -63,7 +63,7 @@
                 </span>
               </div>
             </div>
-            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Descripci&oacute;n Procesador..." name="txtProcesador">
+            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Descripci&oacute;n Procesador..." name="txtProcesador" autocomplete="off">
           </div>
         </div>
         <div class="form-group col-6">
@@ -77,11 +77,11 @@
             </div>
             <select id="inputState" class="form-control" name="ddlRam">
               <option selected> --- Seleccione RAM ---</option>
-              <option value="Memoria RAM DDR2 2GB 10600S">Mem&oacute;ria RAM DDR2 2GB 10600S</option>
-              <option value="Memoria RAM DDR2 4GB 12800S">Mem&oacute;ria RAM DDR2 4GB 12800S</option>
-              <option value="Memoria RAM DDR3 8GB 10600S">Mem&oacute;ria RAM DDR3 8GB 10600S</option>
-              <option value="Memoria RAM DDR3 16GB 12800">Mem&oacute;ria RAM DDR3 16GB 12800</option>
-              <option value="Memoria RAM DDR4 32GB 10600S">Mem&oacute;ria RAM DDR4 32GB 10600S</option>
+              <option>Mem&oacute;ria RAM DDR2 2GB 10600S</option>
+              <option>Mem&oacute;ria RAM DDR2 4GB 12800S</option>
+              <option>Mem&oacute;ria RAM DDR3 8GB 10600S</option>
+              <option>Mem&oacute;ria RAM DDR3 16GB 12800</option>
+              <option>Mem&oacute;ria RAM DDR4 32GB 10600S</option>
             </select>
           </div>
         </div>
@@ -98,12 +98,12 @@
             </div>
             <select id="inputState" class="form-control" name="ddlDiscoDuro">
               <option selected> --- Seleccione Disco Duro ---</option>
-              <option value="Disco SSD 7200-RPM 1TB">Disco SSD 7200-RPM 1TB </option>
-              <option value="Disco SSD 7200-RPM 260GB">Disco SSD 7200-RPM 260GB </option>
-              <option value="Disco SSD 7200-RPM 500GB">Disco SSD 7200-RPM 500GB </option>
-              <option value="Disco Mecánico 7200-RPM 500GB">Disco Mec&aacute;nico 7200-RPM 500GB </option>
-              <option value="Disco Mecánico 7200-RPM 1TB">Disco Mec&aacute;nico 7200-RPM 1TB </option>
-              <option value="Disco Mecánico 7200-RPM 2TB">Disco Mec&aacute;nico 7200-RPM 2TB </option>
+              <option>Disco SSD 7200-RPM 1TB </option>
+              <option>Disco SSD 7200-RPM 260GB </option>
+              <option>Disco SSD 7200-RPM 500GB </option>
+              <option>Disco Mec&aacute;nico 7200-RPM 500GB </option>
+              <option>Disco Mec&aacute;nico 7200-RPM 1TB </option>
+              <option>Disco Mec&aacute;nico 7200-RPM 2TB </option>
             </select>
           </div>
         </div>
@@ -118,10 +118,10 @@
             </div>
             <select id="inputState" class="form-control" name="ddlGarantia">
               <option selected> --- Seleccione Garant&iacute;a ---</option>
-              <option value="Garantía 3 Meses">Garant&iacute;a 3 Meses</option>
-              <option value="Garantía 6 Meses">Garant&iacute;a 6 Meses</option>
-              <option value="Garantía 1 Año">Garant&iacute;a 1 A&ntilde;o</option>
-              <option value="Garantía 2 Año">Garant&iacute;a 2 A&ntilde;o</option>
+              <option>Garant&iacute;a 3 Meses</option>
+              <option>Garant&iacute;a 6 Meses</option>
+              <option>Garant&iacute;a 1 A&ntilde;o</option>
+              <option>Garant&iacute;a 2 A&ntilde;o</option>
             </select>
           </div>
         </div>
@@ -134,7 +134,7 @@
                 </span>
               </div>
             </div>
-            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Costo..." name="txtCosto">
+            <input type="number" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Costo..." name="txtCosto" autocomplete="off">
           </div>
         </div>
       </div>
@@ -145,25 +145,6 @@
           </div>
         </div>
       </div>
-      <?php
-      // $registro = new ControladorFormularios();
-      // $registro->ctrRegistro();
-
-      $registro = ControladorFormularios::ctrRegistro();
-
-      if ($registro == "ok") {
-
-        echo '<script>
-              if(window.history.replaceState){
-                window.history.replaceState(null, null, window.location.href);
-              }
-            </script>';
-        echo '<div class="alert alert-success">El registro fue exitoso</div>';
-      } else {
-        print_r($registro);
-      }
-
-      ?>
       <div class="row d-flex justify-content-center">
         <div class="form-group col-4 text-center">
           <button type="submit" class="btn btn-primary" name="btnRegistrar">
@@ -186,3 +167,25 @@
   </form>
 </div>
 </div>
+
+<?php
+$registro = ControladorFormularios::ctrRegistro();
+if ($registro == "ok") {
+?>
+  <script>
+    if (window.history.replaceState) {
+      window.history.replaceState(null, null, window.location.href);
+    }
+    Swal.fire({
+      position: 'top-center',
+      icon: 'success',
+      title: 'Registro Exitoso!',
+      showConfirmButton: false,
+      timer: 1500
+    });
+  </script>
+<?php
+} else {
+  print_r($registro);
+}
+?>
