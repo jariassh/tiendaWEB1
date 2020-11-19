@@ -1,4 +1,16 @@
-<div class="row" style="boder-bottom: 5px solid red">
+<?php
+
+if (isset($_GET["id"])) {
+
+  $item = "idProduct";
+  $valor = $_GET["id"];
+
+  $producto = ControladorFormularios::ctrSeleccionaRegistros($item, $valor);
+}
+?>
+
+
+<div class="row">
   <div class="col">
     <header>
       <div class="row colorFondo mb-3" id="cabecera">
@@ -16,13 +28,13 @@
   <div class="w-100 text-center" id="tituloForm">
     <h1>EDITAR PRODUCTO</h1>
   </div>
-  <div id="imgForm">
-    <img src="https://i.postimg.cc/fLLvDbYD/portatil.png" class="img-fluid">
+  <div id="imgForm" class="">
+    <img src="<?php echo $producto["img"]; ?>" class="img-fluid" id="imagenActualizar">
   </div>
 </div>
 <div class="row d-flex justify-content-center mt-3">
   <div class="col-8">
-    <form class="p-5 bg-light" id="formRegistrar">
+    <form class="p-5 bg-light" id="formRegistrar" method="post">
       <div class="row">
         <div class="form-group col-4 mt-3">
           <div class="input-group mb-2">
@@ -33,10 +45,31 @@
                 </span>
               </div>
             </div>
-            <select id="inputState" class="form-control">
-              <option> --- Seleccione Tipo ---</option>
-              <option>Computador de Mesa</option>
-              <option selected>Computador Portatil</option>
+            <select name="actualizarTipo" class="form-control">
+              <?php
+              $tipo = $producto["typeProduct"];
+
+              switch ($tipo):
+                case 'Computador de Mesa':
+              ?>
+                  <option selected>Computador de Mesa</option>
+                  <option>Computador Portatil</option>
+                <?php
+                  break;
+                case 'Computador Portatil':
+                ?>
+                  <option>Computador de Mesa</option>
+                  <option selected>Computador Portatil</option>
+                <?php
+                  break;
+
+                default:
+                ?>
+                  <option selected> --- Seleccione Tipo ---</option>
+              <?php
+                  break;
+              endswitch
+              ?>
             </select>
           </div>
         </div>
@@ -49,7 +82,7 @@
                 </span>
               </div>
             </div>
-            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" value="https://i.postimg.cc/fLLvDbYD/portatil.png">
+            <input id="updateImg" type="text" class="form-control" placeholder="Escriba la URL de la imagen" name="actualizarImg" value="<?php echo $producto["img"]; ?>">
           </div>
         </div>
       </div>
@@ -63,7 +96,7 @@
                 </span>
               </div>
             </div>
-            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" value="Procesador. Intel® Celeron® 743 (1.3GHz/800MHz FSB/1MB cache)">
+            <input type="text" class="form-control" name="actualizarProcesador" placeholder="Describa Procesador (Marca, generacion, capacidad en GHz)." value="<?php echo $producto["processor"]; ?>">
           </div>
         </div>
         <div class="form-group col-6">
@@ -75,13 +108,55 @@
                 </span>
               </div>
             </div>
-            <select id="inputState" class="form-control">
-              <option> --- Seleccione RAM ---</option>
-              <option>Mem&oacute;ria RAM DDR2 2GB 10600S</option>
-              <option>Mem&oacute;ria RAM DDR2 4GB 12800S</option>
-              <option selected>Mem&oacute;ria RAM DDR3 8GB 10600S</option>
-              <option>Mem&oacute;ria RAM DDR3 16GB 12800</option>
-              <option>Mem&oacute;ria RAM DDR4 32GB 10600S</option>
+            <select name="actualizarRAM" class="form-control">
+              <?php
+              $ram = $producto["ram"];
+              switch ($ram):
+                case 'Memoria RAM DDR2 2GB 10600S':
+              ?><option selected>Mem&oacute;ria RAM DDR2 2GB 10600S</option>
+                  <option>Mem&oacute;ria RAM DDR2 4GB 12800S</option>
+                  <option>Mem&oacute;ria RAM DDR3 8GB 10600S</option>
+                  <option>Mem&oacute;ria RAM DDR3 16GB 12800</option>
+                  <option>Mem&oacute;ria RAM DDR4 32GB 10600S</option>
+                <?php
+                  break;
+                case 'Memoria RAM DDR2 4GB 12800S':
+                ?><option>Mem&oacute;ria RAM DDR2 2GB 10600S</option>
+                  <option selected>Mem&oacute;ria RAM DDR2 4GB 12800S</option>
+                  <option>Mem&oacute;ria RAM DDR3 8GB 10600S</option>
+                  <option>Mem&oacute;ria RAM DDR3 16GB 12800</option>
+                  <option>Mem&oacute;ria RAM DDR4 32GB 10600S</option>
+                <?php
+                  break;
+                case 'Memoria RAM DDR3 8GB 10600S':
+                ?><option>Mem&oacute;ria RAM DDR2 2GB 10600S</option>
+                  <option>Mem&oacute;ria RAM DDR2 4GB 12800S</option>
+                  <option selected>Mem&oacute;ria RAM DDR3 8GB 10600S</option>
+                  <option>Mem&oacute;ria RAM DDR3 16GB 12800</option>
+                  <option>Mem&oacute;ria RAM DDR4 32GB 10600S</option>
+                <?php
+                  break;
+                case 'Memoria RAM DDR3 16GB 12800':
+                ?><option>Mem&oacute;ria RAM DDR2 2GB 10600S</option>
+                  <option>Mem&oacute;ria RAM DDR2 4GB 12800S</option>
+                  <option>Mem&oacute;ria RAM DDR3 8GB 10600S</option>
+                  <option selected>Mem&oacute;ria RAM DDR3 16GB 12800</option>
+                  <option>Mem&oacute;ria RAM DDR4 32GB 10600S</option>
+                <?php
+                  break;
+                case 'Memoria RAM DDR4 32GB 10600S':
+                ?><option>Mem&oacute;ria RAM DDR2 2GB 10600S</option>
+                  <option>Mem&oacute;ria RAM DDR2 4GB 12800S</option>
+                  <option>Mem&oacute;ria RAM DDR3 8GB 10600S</option>
+                  <option>Mem&oacute;ria RAM DDR3 16GB 12800</option>
+                  <option selected>Mem&oacute;ria RAM DDR4 32GB 10600S</option>
+                <?php
+                  break;
+                default:
+                ?><option selected> --- Seleccione RAM ---</option>
+              <?php
+                  break;
+              endswitch ?>
             </select>
           </div>
         </div>
@@ -96,14 +171,76 @@
                 </span>
               </div>
             </div>
-            <select id="inputState" class="form-control">
-              <option> --- Seleccione Disco Duro ---</option>
-              <option selected>Disco SSD 7200-RPM 1TB </option>
-              <option>Disco SSD 7200-RPM 260GB </option>
-              <option>Disco SSD 7200-RPM 500GB </option>
-              <option>Disco Mec&aacute;nico 7200-RPM 500GB </option>
-              <option>Disco Mec&aacute;nico 7200-RPM 1TB </option>
-              <option>Disco Mec&aacute;nico 7200-RPM 2TB </option>
+            <select name="actualizarDiscoDuro" class="form-control">
+              <?php
+              $hardDisk = $producto["hardDisk"];
+              switch ($hardDisk):
+                case 'Disco SSD 7200-RPM 1TB':
+              ?>
+                  <option selected>Disco SSD 7200-RPM 1TB</option>
+                  <option>Disco SSD 7200-RPM 260GB</option>
+                  <option>Disco SSD 7200-RPM 500GB</option>
+                  <option>Disco Mec&aacute;nico 7200-RPM 500GB</option>
+                  <option>Disco Mec&aacute;nico 7200-RPM 1TB</option>
+                  <option>Disco Mec&aacute;nico 7200-RPM 2TB</option>
+                <?php
+                  break;
+                case 'Disco SSD 7200-RPM 260GB':
+                ?>
+                  <option>Disco SSD 7200-RPM 1TB</option>
+                  <option selected>Disco SSD 7200-RPM 260GB</option>
+                  <option>Disco SSD 7200-RPM 500GB</option>
+                  <option>Disco Mec&aacute;nico 7200-RPM 500GB</option>
+                  <option>Disco Mec&aacute;nico 7200-RPM 1TB</option>
+                  <option>Disco Mec&aacute;nico 7200-RPM 2TB</option>
+                <?php
+                  break;
+                case 'Disco SSD 7200-RPM 500GB':
+                ?>
+                  <option>Disco SSD 7200-RPM 1TB</option>
+                  <option>Disco SSD 7200-RPM 260GB</option>
+                  <option selected>Disco SSD 7200-RPM 500GB</option>
+                  <option>Disco Mec&aacute;nico 7200-RPM 500GB</option>
+                  <option>Disco Mec&aacute;nico 7200-RPM 1TB</option>
+                  <option>Disco Mec&aacute;nico 7200-RPM 2TB</option>
+                <?php
+                  break;
+                case 'Disco Mecánico 7200-RPM 500GB':
+                ?>
+                  <option>Disco SSD 7200-RPM 1TB</option>
+                  <option>Disco SSD 7200-RPM 260GB</option>
+                  <option>Disco SSD 7200-RPM 500GB</option>
+                  <option selected>Disco Mec&aacute;nico 7200-RPM 500GB</option>
+                  <option>Disco Mec&aacute;nico 7200-RPM 1TB</option>
+                  <option>Disco Mec&aacute;nico 7200-RPM 2TB</option>
+                <?php
+                  break;
+                case 'Disco Mecánico 7200-RPM 1TB':
+                ?>
+                  <option>Disco SSD 7200-RPM 1TB</option>
+                  <option>Disco SSD 7200-RPM 260GB</option>
+                  <option>Disco SSD 7200-RPM 500GB</option>
+                  <option>Disco Mec&aacute;nico 7200-RPM 500GB</option>
+                  <option selected>Disco Mec&aacute;nico 7200-RPM 1TB</option>
+                  <option>Disco Mec&aacute;nico 7200-RPM 2TB</option>
+                <?php
+                  break;
+                case 'Disco Mecánico 7200-RPM 2TB':
+                ?>
+                  <option>Disco SSD 7200-RPM 1TB</option>
+                  <option>Disco SSD 7200-RPM 260GB</option>
+                  <option>Disco SSD 7200-RPM 500GB</option>
+                  <option>Disco Mec&aacute;nico 7200-RPM 500GB</option>
+                  <option>Disco Mec&aacute;nico 7200-RPM 1TB</option>
+                  <option selected>Disco Mec&aacute;nico 7200-RPM 2TB</option>
+                <?php
+                  break;
+                default:
+                ?>
+                  <option selected> --- Seleccione Disco Duro ---</option>
+              <?php
+                  break;
+              endswitch ?>
             </select>
           </div>
         </div>
@@ -116,12 +253,50 @@
                 </span>
               </div>
             </div>
-            <select id="inputState" class="form-control">
-              <option> --- Seleccione Garant&iacute;a ---</option>
-              <option>Garant&iacute;a 3 Meses</option>
-              <option>Garant&iacute;a 6 Meses</option>
-              <option selected>Garant&iacute;a 1 A&ntilde;o</option>
-              <option>Garant&iacute;a 2 A&ntilde;o</option>
+            <select name="actualizarGarantia" class="form-control">
+              <?php
+              $garantia = $producto["warranty"];
+
+              switch ($garantia):
+                case 'Garantía 3 Meses':
+              ?>
+                  <option selected>Garant&iacute;a 3 Meses</option>
+                  <option>Garant&iacute;a 6 Meses</option>
+                  <option>Garant&iacute;a 1 A&ntilde;o</option>
+                  <option>Garant&iacute;a 2 A&ntilde;o</option>
+                <?php
+                  break;
+                case 'Garantía 6 Meses':
+                ?>
+                  <option>Garant&iacute;a 3 Meses</option>
+                  <option selected>Garant&iacute;a 6 Meses</option>
+                  <option>Garant&iacute;a 1 A&ntilde;o</option>
+                  <option>Garant&iacute;a 2 A&ntilde;o</option>
+                <?php
+                  break;
+                case 'Garantía 1 Año':
+                ?>
+                  <option>Garant&iacute;a 3 Meses</option>
+                  <option>Garant&iacute;a 6 Meses</option>
+                  <option selected>Garant&iacute;a 1 A&ntilde;o</option>
+                  <option>Garant&iacute;a 2 A&ntilde;o</option>
+                <?php
+                  break;
+                case 'Garantía 2 Año':
+                ?>
+                  <option>Garant&iacute;a 3 Meses</option>
+                  <option>Garant&iacute;a 6 Meses</option>
+                  <option>Garant&iacute;a 1 A&ntilde;o</option>
+                  <option selected>Garant&iacute;a 2 A&ntilde;o</option>
+                <?php
+                  break;
+
+                default:
+                ?>
+                  <option selected> --- Seleccione Garant&iacute;a ---</option>
+              <?php
+                  break;
+              endswitch ?>
             </select>
           </div>
         </div>
@@ -134,20 +309,20 @@
                 </span>
               </div>
             </div>
-            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" value="1.560.000,00">
+            <input type="text" class="form-control" name="actualizarCosto" placeholder="Escriba costo sin puntos '.' ni comas ','" value="<?php echo $producto["cost"] ?>">
           </div>
         </div>
       </div>
       <div class="row">
         <div class="form-group col-12">
           <div class="input-group mb-2" id="txtDetallesProducto">
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" placeholder="Sistema Operativo. Windows® 7 Home Basic Original de 64 bits en Español."></textarea>
+            <textarea class="form-control" name="actualizarDescripcion" rows="6" placeholder="Describa las caracteristicas generales del producto... (Modelo, Marca, SO, Pantalla, etc.)"><?php echo $producto["obs"]; ?></textarea>
           </div>
         </div>
       </div>
       <div class="row d-flex justify-content-center">
         <div class="form-group col-4 text-center">
-          <button type="submit" class="btn btn-primary">
+          <button type="submit" class="btn btn-primary" name="btnGuardarCambios">
             <span class="mr-2">
               <i class="fas fa-database"></i>
             </span>
@@ -160,7 +335,31 @@
           <a href="stock"><span class="mr-2"><i class="fas fa-undo-alt"></i></span>Cancelar</a>
         </div>
       </div>
+      <input type="hidden" value="<?php echo $producto["idProduct"] ?>" name="idItem">
   </div>
+
+  <?php
+
+  $actualizar = ControladorFormularios::ctrActualizarRegistro();
+
+  if ($actualizar == "ok") :
+  ?>
+    <script>
+      if (window.history.replaceState) {
+        window.history.replaceState(null, null, window.location.href);
+      }
+      Swal.fire({
+        position: 'top-center',
+        icon: 'success',
+        title: 'Actualizado Correctamente!',
+        showConfirmButton: false,
+        timer: 1500
+      });
+      setTimeout(function() {
+        window.location = "index.php?pagina=stock";
+      }, 2000);
+    </script>
+  <?php endif ?>
   </form>
 </div>
 </div>

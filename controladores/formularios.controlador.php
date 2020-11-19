@@ -30,22 +30,40 @@ class ControladorFormularios
     }
   }
 
-  static public function ctrSeleccionaRegistros()
+  static public function ctrSeleccionaRegistros($item, $valor)
   {
     $tabla = "productos";
 
-    $respuesta = ModeloFormularios::mdlSelecionarRegistros($tabla);
+    $respuesta = ModeloFormularios::mdlSelecionarRegistros($tabla, $item, $valor);
 
     return $respuesta;
   }
 
-  static public function ctrSelectItem()
+  static public function ctrActualizarRegistro()
   {
-    if (isset($_POST["verItem"])) {
-      $id = $_POST["idItem"];
+    if (isset($_POST["btnGuardarCambios"])) {
+
       $tabla = "productos";
-      $respuesta = ModeloFormularios::mdlItem($tabla, $id);
-      return $respuesta;
+
+      $datos = array(
+        "id" => $_POST["idItem"],
+        "typeProduct" => $_POST["actualizarTipo"],
+        "img" => $_POST["actualizarImg"],
+        "processor" => $_POST["actualizarProcesador"],
+        "ram" => $_POST["actualizarRAM"],
+        "hardDisk" => $_POST["actualizarDiscoDuro"],
+        "warranty" => $_POST["actualizarGarantia"],
+        "cost" => $_POST["actualizarCosto"],
+        "obs" => $_POST["actualizarDescripcion"],
+      );
+
+      if ($datos["processor"]) {
+        $respuesta =  ModeloFormularios::mdlActualizarRegistro($tabla, $datos);
+        return $respuesta;
+      } else {
+        $respuesta = "error";
+        return $respuesta;
+      }
     }
   }
 

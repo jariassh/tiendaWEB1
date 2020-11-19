@@ -17,12 +17,12 @@
     <h1>REGISTRAR PRODUCTO</h1>
   </div>
   <div id="imgForm">
-    <img src="https://i.postimg.cc/fLLvDbYD/portatil.png" class="img-fluid">
+    <img src="https://i.postimg.cc/2S9bKh1D/no-image.jpg" class="img-fluid" id="registrarImagen">
   </div>
 </div>
 <div class="row d-flex justify-content-center mt-3">
   <div class="col-8">
-    <form class="p-5 bg-light" id="formRegistrar" method="POST">
+    <form class="p-5 bg-light" id="formRegistrar" method="POST" onsubmit="return validar();">
       <div class="row">
         <div class="form-group col-4 mt-3">
           <div class="input-group mb-2">
@@ -33,7 +33,7 @@
                 </span>
               </div>
             </div>
-            <select id="inputState" class="form-control" name="ddlType">
+            <select class="form-control" name="ddlType">
               <option selected> --- Seleccione Tipo ---</option>
               <option>Computador de Mesa</option>
               <option>Computador Portatil</option>
@@ -49,7 +49,7 @@
                 </span>
               </div>
             </div>
-            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="https://url-Image..." name="txtImgRegistro" autocomplete="off">
+            <input type="text" id="registerImage" class="form-control" placeholder="https://url-Image..." name="txtImgRegistro" autocomplete="off">
           </div>
         </div>
       </div>
@@ -63,7 +63,7 @@
                 </span>
               </div>
             </div>
-            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Descripci&oacute;n Procesador..." name="txtProcesador" autocomplete="off">
+            <input type="text" class="form-control" placeholder="Descripci&oacute;n Procesador..." name="txtProcesador" autocomplete="off">
           </div>
         </div>
         <div class="form-group col-6">
@@ -75,7 +75,7 @@
                 </span>
               </div>
             </div>
-            <select id="inputState" class="form-control" name="ddlRam">
+            <select class="form-control" name="ddlRam">
               <option selected> --- Seleccione RAM ---</option>
               <option>Mem&oacute;ria RAM DDR2 2GB 10600S</option>
               <option>Mem&oacute;ria RAM DDR2 4GB 12800S</option>
@@ -96,7 +96,7 @@
                 </span>
               </div>
             </div>
-            <select id="inputState" class="form-control" name="ddlDiscoDuro">
+            <select class="form-control" name="ddlDiscoDuro">
               <option selected> --- Seleccione Disco Duro ---</option>
               <option>Disco SSD 7200-RPM 1TB </option>
               <option>Disco SSD 7200-RPM 260GB </option>
@@ -116,7 +116,7 @@
                 </span>
               </div>
             </div>
-            <select id="inputState" class="form-control" name="ddlGarantia">
+            <select class="form-control" name="ddlGarantia">
               <option selected> --- Seleccione Garant&iacute;a ---</option>
               <option>Garant&iacute;a 3 Meses</option>
               <option>Garant&iacute;a 6 Meses</option>
@@ -134,14 +134,14 @@
                 </span>
               </div>
             </div>
-            <input type="number" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Costo..." name="txtCosto" autocomplete="off">
+            <input type="number" class="form-control" placeholder="Costo..." name="txtCosto" autocomplete="off">
           </div>
         </div>
       </div>
       <div class="row">
         <div class="form-group col-12">
           <div class="input-group mb-2" id="txtDetallesProducto">
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" placeholder="Escriba detalles adicionales..." name="txtDescripcion"></textarea>
+            <textarea class="form-control" rows="6" placeholder="Describa las caracteristicas generales del producto... (Modelo, Marca, SO, Pantalla, etc.)" name="txtDescripcion"></textarea>
           </div>
         </div>
       </div>
@@ -186,6 +186,19 @@ if ($registro == "ok") {
   </script>
 <?php
 } else {
-  print_r($registro);
+?>
+  <script>
+    if (window.history.replaceState) {
+      window.history.replaceState(null, null, window.location.href);
+    }
+    Swal.fire({
+      position: 'top-center',
+      icon: 'error',
+      title: 'Oops! Registro no enviado',
+      showConfirmButton: false,
+      timer: 1500
+    });
+  </script>
+<?php
 }
 ?>

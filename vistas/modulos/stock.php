@@ -1,6 +1,6 @@
 <?php
 
-$productos = ControladorFormularios::ctrSeleccionaRegistros();
+$productos = ControladorFormularios::ctrSeleccionaRegistros(null, null);
 // echo '<pre>';
 // print_r($productos);
 // echo '</pre>';
@@ -64,89 +64,35 @@ $productos = ControladorFormularios::ctrSeleccionaRegistros();
             ?>.</p>
         </div>
         <div class="card-footer bg-white text-center">
+
           <form method="post">
-            <!-- FIXME: Corregir envío de id para controlador y abrir modal con información del Item -->
-            <input type="hidden" name="idItem" value="<?php echo $producto["idProduct"] ?>">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalProducto" name="verItem">Ver Producto</button>
-          </form>
-
-        </div>
-      </div>
-
-      <div class="modal fade" tab-index="-1" id="modalProducto" role="dialog" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content px-3 pb-3">
-            <div class="mr-2 mt-2">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
             <?php
-            $items = ControladorFormularios::ctrSelectItem();
-            foreach ($items as $item) :
+            $eliminar = ControladorFormularios::ctrEliminaRegistro();
+            if ($eliminar == "ok") {
             ?>
-              <div class="row justify-content-center">
-                <div class="col-9" id="imgModal">
-                  <img class="img-fluid" src="<?php echo $item["img"] ?>" alt="" id="imgModalProduct">
-                </div>
-              </div>
-              <div class="row d-flex justify-content-center">
-                <div class="col-9 text-justify border p-3 mx-2 bg-light">
-                  <div class="row">
-                    <div class="col text-center">
-                      <h4>
-                        <strong>
-                          <?php
-                          $precio = number_format($item["cost"]);
-                          echo "$" . $precio;
-                          ?>
-                        </strong>
-                      </h4>
-                    </div>
-                  </div>
-                  <div class="row my-2">
-                    <div class="col text-center">
-                      <kbd class="px-2">Descripción</kbd>
-                    </div>
-                  </div>
-                  <p><?php
-                      $detalleItem = $item["obs"] . ", " . $item["hardDisk"] . ", " . $item["processor"] . ", " . $item["ram"] . ", " . $item["warranty"];
-                      echo ($detalleItem);
-                      ?></p>
-                </div>
-              </div>
-              <div class="row my-3">
-                <div class="col text-center">
-                  <form method="POST">
-                    <?php
-                    $eliminar = ControladorFormularios::ctrEliminaRegistro();
-                    if ($eliminar == "ok") {
-                    ?>
-                      <script>
-                        if (window.history.replaceState) {
-                          window.history.replaceState(null, null, window.location.href);
-                        }
-                        Swal.fire({
-                          position: 'top-center',
-                          icon: 'success',
-                          title: 'Eliminado Exitoso!',
-                          showConfirmButton: false,
-                          timer: 1500
-                        });
-                      </script>
-                    <?php
-                    } else {
-                      print_r($eliminar);
-                    }
-                    ?>
-                    <input type="hidden" name="id" value="<?php echo $item["idProduct"] ?>">
-                    <button type="submit" class="btn btn-danger px-4" name="btnEliminar">Eliminar</button>
-                    <a href="modificar" class="btn btn-warning mr-3 px-5">Modificar</a>
-                  </form>
-                </div>
-              </div>
-            <?php endforeach ?>
-          </div>
+              <script>
+                if (window.history.replaceState) {
+                  window.history.replaceState(null, null, window.location.href);
+                }
+                Swal.fire({
+                  position: 'top-center',
+                  icon: 'success',
+                  title: 'Eliminado Exitoso!',
+                  showConfirmButton: false,
+                  timer: 1500
+                });
+              </script>
+            <?php
+            } else {
+              print_r($eliminar);
+            }
+            ?>
+
+            <a href="index.php?pagina=modificar&id=<?php echo $producto["idProduct"]; ?>" class="btn btn-warning px-4"><span><i class="fas fa-edit mr-2"></i></span> Editar</a>
+            <input type="hidden" name="id" value="<?php echo $producto["idProduct"] ?>">
+            <button type="submit" class="btn btn-danger px-4" name="btnEliminar">Eliminar</button>
+
+          </form>
         </div>
       </div>
     <?php endforeach ?>
