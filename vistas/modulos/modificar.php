@@ -1,9 +1,9 @@
 <?php
 
-if (isset($_GET["id"])) {
+if (isset($rutas[1])) {
 
   $item = "idProduct";
-  $valor = $_GET["id"];
+  $valor = $rutas[2];
 
   $producto = ControladorFormularios::ctrSeleccionaRegistros($item, $valor);
 }
@@ -34,7 +34,7 @@ if (isset($_GET["id"])) {
 </div>
 <div class="row d-flex justify-content-center mt-3">
   <div class="col-8">
-    <form class="p-5 bg-light" id="formRegistrar" method="post">
+    <form class="p-5 bg-light" id="formActualizar" method="post">
       <div class="row">
         <div class="form-group col-4 mt-3">
           <div class="input-group mb-2">
@@ -84,6 +84,7 @@ if (isset($_GET["id"])) {
             </div>
             <input id="updateImg" type="text" class="form-control" placeholder="Escriba la URL de la imagen" name="actualizarImg" value="<?php echo $producto["img"]; ?>">
           </div>
+          <small id="errorImg" class="text-danger d-none">Campo no puede estar vacío</small>
         </div>
       </div>
       <div class="row">
@@ -96,8 +97,9 @@ if (isset($_GET["id"])) {
                 </span>
               </div>
             </div>
-            <input type="text" class="form-control" name="actualizarProcesador" placeholder="Describa Procesador (Marca, generacion, capacidad en GHz)." value="<?php echo $producto["processor"]; ?>">
+            <input type="text" class="form-control" id="actualizarProcesador" name="actualizarProcesador" placeholder="Describa Procesador (Marca, generacion, capacidad en GHz)." value="<?php echo $producto["processor"]; ?>">
           </div>
+          <small id="errorProcesador" class="text-danger d-none">Campo no puede estar vacío</small>
         </div>
         <div class="form-group col-6">
           <div class="input-group mb-2">
@@ -309,15 +311,17 @@ if (isset($_GET["id"])) {
                 </span>
               </div>
             </div>
-            <input type="text" class="form-control" name="actualizarCosto" placeholder="Escriba costo sin puntos '.' ni comas ','" value="<?php echo $producto["cost"] ?>">
+            <input type="text" class="form-control" id="actualizarCosto" name="actualizarCosto" placeholder="Escriba costo sin puntos '.' ni comas ','" value="<?php echo $producto["cost"] ?>">
           </div>
+          <small id="errorCosto" class="text-danger d-none">Campo no puede estar vacío</small>
         </div>
       </div>
       <div class="row">
         <div class="form-group col-12">
           <div class="input-group mb-2" id="txtDetallesProducto">
-            <textarea class="form-control" name="actualizarDescripcion" rows="6" placeholder="Describa las caracteristicas generales del producto... (Modelo, Marca, SO, Pantalla, etc.)"><?php echo $producto["obs"]; ?></textarea>
+            <textarea class="form-control" id="actualizarDescripcion" name="actualizarDescripcion" rows="6" placeholder="Describa las caracteristicas generales del producto... (Modelo, Marca, SO, Pantalla, etc.)"><?php echo $producto["obs"]; ?></textarea>
           </div>
+          <small id="errorDescripcion" class="text-danger d-none">Campo no puede estar vacío</small>
         </div>
       </div>
       <div class="row d-flex justify-content-center">
@@ -332,7 +336,7 @@ if (isset($_GET["id"])) {
       </div>
       <div class="row d-flex justify-content-center">
         <div class="col-2 text-center">
-          <a href="stock"><span class="mr-2"><i class="fas fa-undo-alt"></i></span>Cancelar</a>
+          <a href="<?php echo SERVERURL; ?>stock"><span class="mr-2"><i class="fas fa-undo-alt"></i></span>Cancelar</a>
         </div>
       </div>
       <input type="hidden" value="<?php echo $producto["idProduct"] ?>" name="idItem">
@@ -356,7 +360,7 @@ if (isset($_GET["id"])) {
         timer: 1500
       });
       setTimeout(function() {
-        window.location = "index.php?pagina=stock";
+        window.location = "<?php echo SERVERURL; ?>stock";
       }, 2000);
     </script>
   <?php endif ?>

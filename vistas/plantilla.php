@@ -15,8 +15,8 @@
   <script src="https://kit.fontawesome.com/29f215aa7a.js" crossorigin="anonymous"></script>
 
   <!-- Project's CSS Files -->
-  <link rel="stylesheet" href="vistas/css/estilos.css">
-  <link rel="stylesheet" href="vistas/css/settingsMobile.css">
+  <link rel="stylesheet" href="<?php echo SERVERURL; ?>vistas/css/estilos.css">
+  <link rel="stylesheet" href="<?php echo SERVERURL; ?>vistas/css/settingsMobile.css">
 
   <!-- CDN Sweet Alert -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
@@ -27,16 +27,17 @@
   <div class="container-fluid">
     <div class="altoDisplay">
       <?php
+      $rutas = array();
       if (isset($_GET["pagina"])) {
-
+        $rutas = explode("/", $_GET["pagina"]);
         if (
-          $_GET["pagina"] == "inicio" ||
-          $_GET["pagina"] == "registro" ||
-          $_GET["pagina"] == "stock" ||
-          $_GET["pagina"] == "modificar"
+          $rutas[0] == "inicio" ||
+          $rutas[0] == "registro" ||
+          $rutas[0] == "stock" ||
+          $rutas[0] == "modificar"
         ) {
 
-          include "modulos/" . $_GET["pagina"] . ".php";
+          include "modulos/" . $rutas[0] . ".php";
         } else {
           include "modulos/error404.php";
         }
@@ -63,8 +64,10 @@
       </div>
     </div>
   </div>
-  <!-- Project's CSS Files -->
-  <script src="vistas/js/funciones.js"></script>
+  <!-- Project's JS Files -->
+  <script src="<?php echo SERVERURL; ?>vistas/js/funciones.js"></script>
+  <script src="<?php echo SERVERURL; ?>vistas/js/validar.registro.js"></script>
+  <script src="<?php echo SERVERURL; ?>vistas/js/validar.actualizacion.js"></script>
   <!-- Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>

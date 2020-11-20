@@ -1,19 +1,33 @@
-$('#modalProducto').on()
-
 $('#registerImage').change(function(){
-  var url = $(this).val();
-  $('#registrarImagen').attr('src', url);
+  var textImg = new Boolean(false);
+  var urlImg = $(this).val();
+  if (urlImg != '') {
+    textImg = true;
+  }
+  switch (textImg) {
+    case true:
+      $('#registrarImagen').attr('src', urlImg);
+      break;
+
+    default:
+      $('#registrarImagen').attr('src', 'https://i.postimg.cc/2S9bKh1D/no-image.jpg');
+      break;
+  }
 });
 
 $('#updateImg').change(function(){
-  var url = $(this).val();
-  $('#imagenActualizar').attr('src', url);
+  var textImg = new Boolean(false);
+  var urlImg = $(this).val();
+  if (urlImg != '') {
+    textImg = true;
+  }
+  switch (textImg) {
+    case true:
+      $('#imagenActualizar').attr('src', urlImg);
+      break;
+
+    default:
+      $('#imagenActualizar').attr('src', 'https://i.postimg.cc/2S9bKh1D/no-image.jpg');
+      break;
+  }
 });
-
-function validar(){
-  var expresion, combo, selected, imagen, procesador, ram, discoDuro, garantia, costo, descripcion;
-  combo = document.getElementsByName("ddlType");
-  selected = combo.options[combo.selectedIndex].text;
-  alert(selected);
-}
-

@@ -22,7 +22,7 @@
 </div>
 <div class="row d-flex justify-content-center mt-3">
   <div class="col-8">
-    <form class="p-5 bg-light" id="formRegistrar" method="POST" onsubmit="return validar();">
+    <form class="p-5 bg-light" id="formRegistrar" method="POST">
       <div class="row">
         <div class="form-group col-4 mt-3">
           <div class="input-group mb-2">
@@ -33,12 +33,13 @@
                 </span>
               </div>
             </div>
-            <select class="form-control" name="ddlType">
-              <option selected> --- Seleccione Tipo ---</option>
-              <option>Computador de Mesa</option>
-              <option>Computador Portatil</option>
+            <select class="form-control" name="ddlType" id="ddlType">
+              <option value="0" selected> --- Seleccione Tipo ---</option>
+              <option value="1">Computador de Mesa</option>
+              <option value="2">Computador Portatil</option>
             </select>
           </div>
+          <small id="errorTipo" class="text-danger d-none">Tipo no seleccionado</small>
         </div>
         <div class="form-group col-8 mt-3">
           <div class="input-group mb-2">
@@ -51,6 +52,7 @@
             </div>
             <input type="text" id="registerImage" class="form-control" placeholder="https://url-Image..." name="txtImgRegistro" autocomplete="off">
           </div>
+          <small id="errorImg" class="text-danger d-none">Campo no puede estar vacío</small>
         </div>
       </div>
       <div class="row">
@@ -63,8 +65,9 @@
                 </span>
               </div>
             </div>
-            <input type="text" class="form-control" placeholder="Descripci&oacute;n Procesador..." name="txtProcesador" autocomplete="off">
+            <input type="text" id="txtProcesador" class="form-control" placeholder="Descripci&oacute;n Procesador..." name="txtProcesador" autocomplete="off">
           </div>
+          <small id="errorProcesador" class="text-danger d-none">Campo no puede estar vacío</small>
         </div>
         <div class="form-group col-6">
           <div class="input-group mb-2">
@@ -75,15 +78,16 @@
                 </span>
               </div>
             </div>
-            <select class="form-control" name="ddlRam">
-              <option selected> --- Seleccione RAM ---</option>
-              <option>Mem&oacute;ria RAM DDR2 2GB 10600S</option>
-              <option>Mem&oacute;ria RAM DDR2 4GB 12800S</option>
-              <option>Mem&oacute;ria RAM DDR3 8GB 10600S</option>
-              <option>Mem&oacute;ria RAM DDR3 16GB 12800</option>
-              <option>Mem&oacute;ria RAM DDR4 32GB 10600S</option>
+            <select class="form-control" name="ddlRam" id="ddlRam">
+              <option value="0" selected> --- Seleccione RAM ---</option>
+              <option value="1">Mem&oacute;ria RAM DDR2 2GB 10600S</option>
+              <option value="2">Mem&oacute;ria RAM DDR2 4GB 12800S</option>
+              <option value="3">Mem&oacute;ria RAM DDR3 8GB 10600S</option>
+              <option value="4">Mem&oacute;ria RAM DDR3 16GB 12800</option>
+              <option value="5">Mem&oacute;ria RAM DDR4 32GB 10600S</option>
             </select>
           </div>
+          <small id="errorRam" class="text-danger d-none">RAM no seleccionada</small>
         </div>
       </div>
       <div class="row">
@@ -96,16 +100,17 @@
                 </span>
               </div>
             </div>
-            <select class="form-control" name="ddlDiscoDuro">
-              <option selected> --- Seleccione Disco Duro ---</option>
-              <option>Disco SSD 7200-RPM 1TB </option>
-              <option>Disco SSD 7200-RPM 260GB </option>
-              <option>Disco SSD 7200-RPM 500GB </option>
-              <option>Disco Mec&aacute;nico 7200-RPM 500GB </option>
-              <option>Disco Mec&aacute;nico 7200-RPM 1TB </option>
-              <option>Disco Mec&aacute;nico 7200-RPM 2TB </option>
+            <select class="form-control" name="ddlDiscoDuro" id="ddlDiscoDuro">
+              <option value="0" selected> --- Seleccione Disco Duro ---</option>
+              <option value="1">Disco SSD 1TB </option>
+              <option value="2">Disco SSD 260GB </option>
+              <option value="3">Disco SSD 500GB </option>
+              <option value="4">Disco Mec&aacute;nico 7200-RPM 500GB </option>
+              <option value="5">Disco Mec&aacute;nico 7200-RPM 1TB </option>
+              <option value="6">Disco Mec&aacute;nico 7200-RPM 2TB </option>
             </select>
           </div>
+          <small id="errorDisco" class="text-danger d-none">Disco Duro no seleccionado</small>
         </div>
         <div class="form-group col-4">
           <div class="input-group mb-2">
@@ -116,14 +121,15 @@
                 </span>
               </div>
             </div>
-            <select class="form-control" name="ddlGarantia">
-              <option selected> --- Seleccione Garant&iacute;a ---</option>
-              <option>Garant&iacute;a 3 Meses</option>
-              <option>Garant&iacute;a 6 Meses</option>
-              <option>Garant&iacute;a 1 A&ntilde;o</option>
-              <option>Garant&iacute;a 2 A&ntilde;o</option>
+            <select class="form-control" name="ddlGarantia" id="ddlGarantia">
+              <option value="0" selected> --- Seleccione Garant&iacute;a ---</option>
+              <option value="1">Garant&iacute;a 3 Meses</option>
+              <option value="2">Garant&iacute;a 6 Meses</option>
+              <option value="3">Garant&iacute;a 1 A&ntilde;o</option>
+              <option value="4">Garant&iacute;a 2 A&ntilde;o</option>
             </select>
           </div>
+          <small id="errorGarantia" class="text-danger d-none">Garant&iacute;a no seleccionada</small>
         </div>
         <div class="form-group col-4">
           <div class="input-group mb-2">
@@ -134,15 +140,17 @@
                 </span>
               </div>
             </div>
-            <input type="number" class="form-control" placeholder="Costo..." name="txtCosto" autocomplete="off">
+            <input type="number" id="txtCosto" class="form-control" placeholder="Costo..." name="txtCosto" autocomplete="off">
           </div>
+          <small id="errorCosto" class="text-danger d-none">Campo no puede estar vacío</small>
         </div>
       </div>
       <div class="row">
         <div class="form-group col-12">
           <div class="input-group mb-2" id="txtDetallesProducto">
-            <textarea class="form-control" rows="6" placeholder="Describa las caracteristicas generales del producto... (Modelo, Marca, SO, Pantalla, etc.)" name="txtDescripcion"></textarea>
+            <textarea class="form-control" id="txtDescripcion" rows="6" placeholder="Describa las caracteristicas generales del producto... (Modelo, Marca, SO, Pantalla, etc.)" name="txtDescripcion"></textarea>
           </div>
+          <small id="errorDescripcion" class="text-danger d-none">Campo no puede estar vacío</small>
         </div>
       </div>
       <div class="row d-flex justify-content-center">
@@ -157,10 +165,10 @@
       </div>
       <div class="row d-flex justify-content-center">
         <div class="col-2 text-right">
-          <a href="stock"><span class="mr-2"><i class="fas fa-store"></i></span>Ver Stock</a>
+          <a href="<?php echo SERVERURL; ?>stock"><span class="mr-2"><i class="fas fa-store"></i></span>Ver Stock</a>
         </div>
         <div class="col-2">
-          <a href="inicio"><span class="mr-2"><i class="fas fa-home"></i></span>Ir al Inicio</a>
+          <a href="<?php echo SERVERURL; ?>inicio"><span class="mr-2"><i class="fas fa-home"></i></span>Ir al Inicio</a>
         </div>
       </div>
   </div>
@@ -170,7 +178,7 @@
 
 <?php
 $registro = ControladorFormularios::ctrRegistro();
-if ($registro == "ok") {
+if ($registro == "ok") :
 ?>
   <script>
     if (window.history.replaceState) {
@@ -185,20 +193,5 @@ if ($registro == "ok") {
     });
   </script>
 <?php
-} else {
-?>
-  <script>
-    if (window.history.replaceState) {
-      window.history.replaceState(null, null, window.location.href);
-    }
-    Swal.fire({
-      position: 'top-center',
-      icon: 'error',
-      title: 'Oops! Registro no enviado',
-      showConfirmButton: false,
-      timer: 1500
-    });
-  </script>
-<?php
-}
+endif
 ?>

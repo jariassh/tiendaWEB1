@@ -1,9 +1,5 @@
 <?php
-
 $productos = ControladorFormularios::ctrSeleccionaRegistros(null, null);
-// echo '<pre>';
-// print_r($productos);
-// echo '</pre>';
 ?>
 
 <div class="row">
@@ -18,13 +14,13 @@ $productos = ControladorFormularios::ctrSeleccionaRegistros(null, null);
           <h3>PRODUCTOS</h3>
         </div>
         <div class="col-3 d-flex justify-content-center py-2">
-          <a href="inicio" class="btn btn-primary">
+          <a href="<?php echo SERVERURL; ?>inicio" class="btn btn-primary">
             <span class="mr-2">
               <i class="fas fa-home"></i>
             </span>
             Inicio
           </a>
-          <a href="registro" class="btn btn-primary ml-2">
+          <a href="<?php echo SERVERURL; ?>registro" class="btn btn-primary ml-2">
             <span class="mr-2">
               <i class="fas fa-database"></i>
             </span>
@@ -88,7 +84,7 @@ $productos = ControladorFormularios::ctrSeleccionaRegistros(null, null);
             }
             ?>
 
-            <a href="index.php?pagina=modificar&id=<?php echo $producto["idProduct"]; ?>" class="btn btn-warning px-4"><span><i class="fas fa-edit mr-2"></i></span> Editar</a>
+            <a href="<?php echo SERVERURL; ?>modificar/producto/<?php echo $producto["idProduct"]; ?>" class="btn btn-warning px-4"><span><i class="fas fa-edit mr-2"></i></span> Editar</a>
             <input type="hidden" name="id" value="<?php echo $producto["idProduct"] ?>">
             <button type="submit" class="btn btn-danger px-4" name="btnEliminar">Eliminar</button>
 
