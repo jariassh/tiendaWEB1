@@ -15,8 +15,8 @@
   <script src="https://kit.fontawesome.com/29f215aa7a.js" crossorigin="anonymous"></script>
 
   <!-- Project's CSS Files -->
-  <link rel="stylesheet" href="<?php echo SERVERURL; ?>vistas/css/estilos.css">
-  <link rel="stylesheet" href="<?php echo SERVERURL; ?>vistas/css/settingsMobile.css">
+  <link rel="stylesheet" href="<?php echo SERVERURL; ?>vistas/css/styles.css">
+  <link rel="stylesheet" href="<?php echo SERVERURL; ?>vistas/css/stylesResponsive.css">
 
   <!-- CDN Sweet Alert -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
@@ -24,50 +24,36 @@
 </head>
 
 <body>
-  <div class="container-fluid">
-    <div class="altoDisplay">
-      <?php
-      $rutas = array();
-      if (isset($_GET["pagina"])) {
-        $rutas = explode("/", $_GET["pagina"]);
-        if (
-          $rutas[0] == "inicio" ||
-          $rutas[0] == "registro" ||
-          $rutas[0] == "stock" ||
-          $rutas[0] == "modificar"
-        ) {
+  <main class="container-fluid">
+    <?php
+    $rutas = array();
+    if (isset($_GET["pagina"])) {
+      $rutas = explode("/", $_GET["pagina"]);
+      if (
+        $rutas[0] == "inicio" ||
+        $rutas[0] == "registro" ||
+        $rutas[0] == "stock" ||
+        $rutas[0] == "modificar"
+      ) {
 
-          include "modulos/" . $rutas[0] . ".php";
-        } else {
-          include "modulos/error404.php";
-        }
+        include "modulos/" . $rutas[0] . ".php";
       } else {
-
-        include "modulos/inicio.php";
+        header('Location:' . SERVERURL);
       }
-      ?>
-    </div>
-    <div class="row mt-4">
-      <div class="w-100 colorFondo" id="footer">
-        <footer class="col-12 col-sm-11 pl-3 py-3 pie">
-          <p class="mb-0">Copyright &copy 2020-2</p>
-          <small>By: Yhonier Molina and Jonathan Arias</small>
-        </footer>
-        <div class=" col-1 pie" id="git">
-          <a href="https://github.com/jariassh/tiendaWEB1" target="blank">
-            <span>
-              <i class="fab fa-github"></i>
-            </span>
-          </a>
-          <p>Repository</p>
-        </div>
-      </div>
-    </div>
-  </div>
+    } else {
+
+      include "modulos/inicio.php";
+    }
+    ?>
+  </main>
+  <footer class="bg-primary">
+    <p>Copyright &copy 2020-2</p>
+  </footer>
+
   <!-- Project's JS Files -->
   <script src="<?php echo SERVERURL; ?>vistas/js/funciones.js"></script>
-  <script src="<?php echo SERVERURL; ?>vistas/js/validar.registro.js"></script>
-  <script src="<?php echo SERVERURL; ?>vistas/js/validar.actualizacion.js"></script>
+
+
   <!-- Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>

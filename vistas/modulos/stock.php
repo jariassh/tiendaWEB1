@@ -1,41 +1,25 @@
 <?php
 $productos = ControladorFormularios::ctrSeleccionaRegistros(null, null);
 ?>
-
-<div class="row">
-  <div class="col">
-    <header>
-      <div class="row colorFondo mb-3" id="cabecera">
-        <div class="col-4 d-flex align-items-center logo pl-3">
-          <h1>MaxiKomputo</h1>
-          <p class="ml-3">Excelencia, Profesionalismo y Precios Bajos</p>
-        </div>
-        <div class="col-5 d-flex align-items-center justify-content-center">
-          <h3>PRODUCTOS</h3>
-        </div>
-        <div class="col-3 d-flex justify-content-center py-2">
-          <a href="<?php echo SERVERURL; ?>inicio" class="btn btn-primary">
-            <span class="mr-2">
-              <i class="fas fa-home"></i>
-            </span>
-            Inicio
-          </a>
-          <a href="<?php echo SERVERURL; ?>registro" class="btn btn-primary ml-2">
-            <span class="mr-2">
-              <i class="fas fa-database"></i>
-            </span>
-            Registrar Producto
-          </a>
-        </div>
-      </div>
-    </header>
+<nav class="navbar bg-light text-center-mobile">
+  <a class="navbar-brand" href="<?php echo SERVERURL; ?>" id="brand">
+    <h3 class="text-galada">Maxikomputo</h3>
+  </a>
+  <div class="d-inline">
+    <a href="<?php echo SERVERURL; ?>" class="btn btn-primary mx-2 my-2 px-4">
+      <span class="mr-2"><i class="fas fa-home"></i></span>
+      Inicio
+    </a>
+    <a href="<?php echo SERVERURL; ?>registro" class="btn btn-primary my-2">
+      <span class="mr-2"><i class="fas fa-database"></i></span>
+      Nuevo Producto</a>
   </div>
-</div>
-<div class="container">
+</nav>
+<div class="container margin-inferior">
   <div class="row mb-4">
     <?php foreach ($productos as $key => $producto) : ?>
 
-      <div class="card col-5th bg-white mt-3">
+      <div class="card col-12 col-sm-6 col-lg-4 col-xl-3 col-5th bg-white mt-4">
         <a href="#" class="bg bg-white">
           <img class="card-img-top img-fluid" src="<?php echo $producto["img"] ?>" alt="Card image">
         </a>
@@ -62,35 +46,43 @@ $productos = ControladorFormularios::ctrSeleccionaRegistros(null, null);
         <div class="card-footer bg-white text-center">
 
           <form method="post">
-            <?php
-            $eliminar = ControladorFormularios::ctrEliminaRegistro();
-            if ($eliminar == "ok") {
-            ?>
-              <script>
-                if (window.history.replaceState) {
-                  window.history.replaceState(null, null, window.location.href);
-                }
-                Swal.fire({
-                  position: 'top-center',
-                  icon: 'success',
-                  title: 'Eliminado Exitoso!',
-                  showConfirmButton: false,
-                  timer: 1500
-                });
-              </script>
-            <?php
-            } else {
-              print_r($eliminar);
-            }
-            ?>
-
-            <a href="<?php echo SERVERURL; ?>modificar/producto/<?php echo $producto["idProduct"]; ?>" class="btn btn-warning px-4"><span><i class="fas fa-edit mr-2"></i></span> Editar</a>
-            <input type="hidden" name="id" value="<?php echo $producto["idProduct"] ?>">
-            <button type="submit" class="btn btn-danger px-4" name="btnEliminar">Eliminar</button>
-
+            <div class="row">
+              <div class="form-group col-12 col-md-6 btnControls">
+                <a href="<?php echo SERVERURL; ?>modificar/producto/<?php echo $producto["idProduct"]; ?>" class="btn btn-warning btn-lg px-5 px-md-4 px-lg-3 px-xl-2" id="btnEditar"><span><i class="fas fa-edit mr-1 mr-lg-2 d-none d-md-inline"></i></span> Editar</a>
+              </div>
+              <div class="form-group col-12 col-md-6 btnControls">
+                <input type="hidden" name="id" value="<?php echo $producto["idProduct"] ?>">
+                <button type="submit" class="btn btn-danger btn-lg px-5 px-lg-4" name="btnEliminar">Eliminar</button>
+              </div>
+            </div>
           </form>
         </div>
       </div>
     <?php endforeach ?>
   </div>
 </div>
+
+<?php
+$eliminar = ControladorFormularios::ctrEliminaRegistro();
+if ($eliminar == "ok") {
+?>
+  <script>
+    if (window.history.replaceState) {
+      window.history.replaceState(null, null, window.location.href);
+    }
+    Swal.fire({
+      position: 'top-center',
+      icon: 'success',
+      title: 'Eliminado Exitoso!',
+      showConfirmButton: false,
+      timer: 1000
+    });
+    setTimeout(function() {
+      window.location = "<?php echo SERVERURL; ?>stock";
+    }, 1500);
+  </script>
+<?php
+} else {
+  print_r($eliminar);
+}
+?>

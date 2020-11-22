@@ -64,8 +64,8 @@ function validar(){
   }
 }
 
-formActualizar.addEventListener('submit', (e)=>{
-  if(!validar()){
-    e.preventDefault();
-  }
-});
+  formActualizar.addEventListener('submit', (e)=>{
+    if(!validar()){
+      e.preventDefault();
+    }
+  });

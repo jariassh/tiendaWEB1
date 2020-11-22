@@ -120,8 +120,10 @@ function validar(){
   }
 }
 
-formRegistrar.addEventListener('submit', (e)=>{
-  if(!validar()){
-    e.preventDefault();
-  }
-});
+  formRegistrar.addEventListener('submit', (e)=>{
+    if(!validar()){
+      e.preventDefault();
+    }
+  });
+
+

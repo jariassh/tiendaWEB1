@@ -1,0 +1,443 @@
+@import url("https://fonts.googleapis.com/css2?family=Amita:wght@700&family=Galada&display=swap&family=Staatliches&display=swap&family=Courgette&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+body {
+  background-image: url("https://i.postimg.cc/nzMKHZdf/background-Tienda-Web.jpg");
+  background-color: #f0f0f0;
+  background-size: cover;
+}
+
+.text-galada {
+  font-family: "Galada", cursive;
+}
+.text-courgette {
+  font-family: "Courgette", cursive;
+}
+.text-amita {
+  font-family: "Amita", cursive;
+}
+.style-form {
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px #ccc;
+}
+nav {
+  box-shadow: 5px 5px 5px #ccc;
+}
+form input,
+select,
+textarea {
+  font-family: "Courgette", cursive;
+}
+
+footer {
+  position: fixed;
+  text-align: center;
+  color: #fff;
+  width: 100%;
+  bottom: 0;
+  margin-top: 30px;
+}
+
+footer p {
+  font-family: "Amita", cursive;
+  font-size: 20px;
+  margin-top: 15px;
+}
+
+.card {
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  transition: all 0.25s;
+}
+
+.card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0px 6px 16px rgba(0, 123, 255, 0.6);
+}
+.card:hover {
+  background: #f8f9fa !important;
+}
+
+/* Revisamos pantallas Escritorio Extra Grande XXL ( >= 1600 PX) */
+
+@media (min-width: 1600px) {
+  .container {
+    max-width: 90% !important;
+  }
+  .margin-inferior {
+    padding-bottom: 50px;
+    margin-bottom: 50px;
+    overflow: hidden;
+  }
+  #imgInicio {
+    width: 400px;
+    height: 530px;
+    overflow: hidden;
+  }
+
+  #textInicio {
+    display: block !important;
+    flex-direction: column;
+  }
+
+  #textInicio h3 {
+    font-size: 70px;
+  }
+
+  #textInicio p {
+    font-size: 30px;
+  }
+
+  .btns-inicio {
+    height: 55px;
+    overflow: hidden;
+  }
+
+  .btns-inicio a {
+    line-height: 3;
+  }
+
+  #brand h3 {
+    font-size: 30px;
+    margin-top: 5px;
+  }
+
+  #imgForm {
+    width: 200px;
+    overflow: hidden;
+    box-shadow: 5px 5px 5px #ccc;
+    border-radius: 10px;
+  }
+
+  .col-5th {
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+    flex: 0 0 20% !important;
+    max-width: 20% !important;
+  }
+
+  .width-form {
+    flex: 0 0 67% !important;
+    max-width: 67% !important;
+  }
+
+  .card a img {
+    height: 250px;
+  }
+}
+
+/* Revisamos pantallas Escritorio XL ( >= 1200 PX & < 1600) */
+
+@media (min-width: 1200px) and (max-width: 1599px) {
+  .container {
+    max-width: 100% !important;
+  }
+  .margin-inferior {
+    padding-bottom: 50px;
+    margin-bottom: 50px;
+    overflow: hidden;
+  }
+  #imgInicio {
+    width: 400px;
+    height: 450px;
+    overflow: hidden;
+  }
+
+  #textInicio {
+    display: block !important;
+    flex-direction: column;
+  }
+
+  #textInicio h3 {
+    font-size: 65px;
+  }
+
+  #textInicio p {
+    font-size: 26px;
+  }
+
+  .btns-inicio {
+    height: 55px;
+    overflow: hidden;
+  }
+
+  .btns-inicio a {
+    line-height: 3;
+  }
+
+  #brand h3 {
+    font-size: 30px;
+    margin-top: 5px;
+  }
+
+  #imgForm {
+    width: 200px;
+    overflow: hidden;
+    box-shadow: 5px 5px 5px #ccc;
+    border-radius: 10px;
+  }
+
+  .card a img {
+    height: 250px;
+  }
+
+  .btnControls {
+    padding: 0 0 0 0 !important;
+  }
+}
+
+/* Revisamos pantallas Tablet Horizontal LG ( >= 992 PX & < 1200) */
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .container {
+    max-width: 100% !important;
+  }
+  .margin-inferior {
+    padding-bottom: 50px;
+    margin-bottom: 50px;
+    overflow: hidden;
+  }
+  #imgInicio {
+    width: 400px;
+    height: 310px;
+    overflow: hidden;
+  }
+
+  #textInicio {
+    display: block !important;
+    flex-direction: column;
+  }
+
+  #textInicio h3 {
+    font-size: 60px;
+  }
+
+  #textInicio p {
+    font-size: 20px;
+  }
+
+  #brand h3 {
+    font-size: 30px;
+    margin-top: 5px;
+  }
+
+  #imgForm {
+    width: 200px;
+    overflow: hidden;
+    box-shadow: 5px 5px 5px #ccc;
+    border-radius: 10px;
+  }
+
+  .card a img {
+    height: 250px;
+  }
+
+  .btnControls {
+    padding: 0 0 0 0 !important;
+  }
+}
+
+/* Revisamos pantallas Tablet Vertical MD ( >= 768 PX & < 991) */
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .container {
+    max-width: 100% !important;
+  }
+  .margin-inferior {
+    padding-bottom: 50px;
+    margin-bottom: 50px;
+    overflow: hidden;
+  }
+  #imgInicio {
+    width: 300px;
+    height: 340px;
+    overflow: hidden;
+    justify-content: center;
+    display: flex;
+  }
+  #imgInicio img {
+    width: 400px;
+    height: 400px;
+  }
+  #textInicio {
+    text-align: center !important;
+    display: block !important;
+    flex-direction: column;
+    height: 400px;
+  }
+
+  #textInicio h3 {
+    font-size: 70px;
+  }
+
+  #textInicio p {
+    font-size: 30px;
+  }
+
+  #brand h3 {
+    font-size: 30px;
+    margin-top: 5px;
+  }
+
+  #imgForm {
+    width: 200px;
+    overflow: hidden;
+    box-shadow: 5px 5px 5px #ccc;
+    border-radius: 10px;
+  }
+
+  .card a img {
+    height: 320px;
+  }
+
+  .btnControls {
+    padding: 0 0 0 0 !important;
+  }
+}
+
+/* Revisamos pantallas Movil Horizontal SM ( >= 576 PX & < 768) */
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .container {
+    max-width: 100% !important;
+  }
+  .margin-inferior {
+    padding-bottom: 50px;
+    margin-bottom: 50px;
+    overflow: hidden;
+  }
+  #imgInicio {
+    width: 300px;
+    height: 340px;
+    overflow: hidden;
+    justify-content: center;
+    display: flex;
+  }
+  #imgInicio img {
+    width: 400px;
+    height: 400px;
+  }
+  #textInicio {
+    text-align: center !important;
+    display: block !important;
+    flex-direction: column;
+    height: 400px;
+  }
+
+  #textInicio h3 {
+    font-size: 70px;
+  }
+
+  #textInicio p {
+    font-size: 30px;
+  }
+
+  #brand h3 {
+    font-size: 30px;
+    margin-top: 5px;
+  }
+
+  #imgForm {
+    width: 200px;
+    overflow: hidden;
+    box-shadow: 5px 5px 5px #ccc;
+    border-radius: 10px;
+  }
+
+  .card a img {
+    height: 250px;
+  }
+
+  .card-title {
+    font-size: 33px !important;
+  }
+
+  .card-text {
+    font-size: 13px !important;
+  }
+
+  .btnControls {
+    padding: 0 0 0 0 !important;
+  }
+}
+
+/* Revisamos pantallas Movil Vertical XS ( < 576 ) */
+
+@media (max-width: 575px) {
+  .container {
+    max-width: 100% !important;
+  }
+  .margin-inferior {
+    padding-bottom: 50px;
+    margin-bottom: 50px;
+    overflow: hidden;
+  }
+  .text-center-mobile {
+    text-align: center;
+  }
+  #imgInicio {
+    width: 300px;
+    height: 340px;
+    overflow: hidden;
+    justify-content: center;
+    display: flex;
+  }
+  #imgInicio img {
+    width: 400px;
+    height: 400px;
+  }
+  #textInicio {
+    text-align: center !important;
+    display: block !important;
+    flex-direction: column;
+    height: 400px;
+  }
+
+  #textInicio h3 {
+    font-size: 70px;
+  }
+
+  #textInicio p {
+    font-size: 30px;
+  }
+
+  #brand h3 {
+    font-size: 45px;
+    margin-top: 5px;
+  }
+
+  #imgForm {
+    width: 200px;
+    overflow: hidden;
+    box-shadow: 5px 5px 5px #ccc;
+    border-radius: 10px;
+  }
+
+  .card a img {
+    height: 250px;
+  }
+
+  .card-title {
+    font-size: 33px !important;
+  }
+
+  .card-text {
+    font-size: 13px !important;
+  }
+
+  .btnControls {
+    padding: 0 0 0 0 !important;
+  }
+}

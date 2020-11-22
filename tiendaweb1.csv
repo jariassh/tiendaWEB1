@@ -1,1 +1,20 @@
-"idProduct","typeProduct","img","processor","ram","hardDisk","warranty","cost","description"
+"idProduct","typeProduct","img","processor","ram","hardDisk","warranty","cost","obs"
+"1","Computador Portatil","https://i.postimg.cc/5jcC62cD/Portatil-2.jpg","Procesador Intel Core I5 10210U 1.6 GHz","Memória RAM DDR3 8GB 10600S","Disco SSD 500GB","Garantía 1 Año","4199000.00","ASUS VivoBook X413FA-BV545T, Sistema Operativo: Windows 10 Home - 64bit, Pantalla: 14"" Pulgadas"
+"2","Computador Portatil","https://i.postimg.cc/nr93yrYW/Portatil-5.png","Intel Core I5 - 10210U 1.6 GHz","Memória RAM DDR4 32GB 10600S","Disco SSD 260GB","Garantía 1 Año","2399000.00","HP Envy 13-AQ1001LA, Sistema Operativo Windows 10 Home, Pantalla 13"" Pulgadas, 16 GB Intel Optane
+"
+"3","Computador Portatil","https://i.postimg.cc/cLhPMKD7/Portatil-3.jpg","Procesador Intel Core I5 10300H 2.5G","Memória RAM DDR3 16GB 12800","Disco SSD 500GB","Garantía 2 Año","5699000.00","Gamer Legion 5, Sistema Operativo Windows 10 HOME, Disco Híbrido 1TB HDD + , Pantalla 15.6"" Pulgadas
+"
+"4","Computador Portatil","https://i.postimg.cc/63tw5s1z/Portatil-4.jpg","Procesador Intel® Core™ I7-1065G7  1.3 GHz","Memória RAM DDR2 4GB 12800S","Disco SSD 260GB","Garantía 1 Año","2249000.00","Portátil ASUS X509JA-BR356T, Sistema Operativo Windows 10 Home 64bit, Pantalla: 15.6"" Pulgadas
+"
+"5","Computador Portatil","https://i.postimg.cc/mgP7VJjd/Portatil-6.jpg","Procesador Intel Core i3 1005G1 1.20 GHz","Memória RAM DDR3 8GB 10600S","Disco SSD 1TB","Garantía 3 Meses","2159000.00","Portátil ACER A315-56-349T, Sistema Operativo Windows 10, Pantalla 15.6"" Pulgadas, Disco Hibrido 1TB + 
+"
+"6","Computador de Mesa","https://i.postimg.cc/pTLWJbYr/Escritorio-1.jpg","Procesador Intel Core i3-1005G1 1.2 Ghz","Memória RAM DDR2 4GB 12800S","Disco Mecánico 7200-RPM 1TB","Garantía 1 Año","1799000.00","Computador Escritorio All In One HP 22-DD0005LA, Sistema Operativo Windows 10 home 64, Pantalla 22"" Pulgadas
+"
+"7","Computador de Mesa","https://i.postimg.cc/fLdNKzSw/Escritorio-3.jpg","Procesador AMD Ryzen 7 3750H 2.3 Ghz","Memória RAM DDR3 8GB 10600S","Disco Mecánico 7200-RPM 500GB","Garantía 1 Año","4469000.00","Computador Escritorio All in one HP Pavilion 24-XA113LA, Sistema Operativo Windows 10 HOME, Pantalla 24"" Pulgadas, Disco Híbrido 1TB HDD +
+"
+"8","Computador de Mesa","https://i.postimg.cc/8C28s2Kx/Escritorio-4.jpg","AMD Ryzen 5 3500U Processor 2.1 GHz","Memória RAM DDR4 32GB 10600S","Disco Mecánico 7200-RPM 1TB","Garantía 3 Meses","2349000.00","Computador Escritorio All In One ASUS Vivo AIO M241DAK-WA113T, Sistema Operativo Windows 10 HOME, Pantalla 23,8"" Pulgadas
+"
+"9","Computador de Mesa","https://i.postimg.cc/nr7hCKGG/Escritorio-2.jpg","Procesador Intel Core I3 10110U 2,1Ghz","Memória RAM DDR3 16GB 12800","Disco SSD 500GB","Garantía 6 Meses","2399000.00","Computador Escritorio All In One LENOVO A340, Sistema Operativo Windows 10 HOME 64 EM, Pantalla 23,8"" Pulgadas, Disco Híbrido: 1TB HDD +
+"
+"10","Computador de Mesa","https://i.postimg.cc/8kB8Pnhn/Escritorio-5.jpg"," Intel Core i7-8700T 2.4 Ghz","Memória RAM DDR4 32GB 10600S","Disco Mecánico 7200-RPM 2TB","Garantía 2 Año","3799000.00","Computador Escritorio All in one HP Pavilion 24-XA002LA, Sistema Operativo Windows 10 HOME, Pantalla 24"" Pulgadas
+"
